@@ -1,0 +1,52 @@
+[
+  {
+    "q": "What is Improvado?",
+    "a": "Improvado is a B-Round company that raised $30M. We work with enterprise clients like T-Mobile, Activision, L'Oreal, ASUS. Average contract is ~$90K/year. Originally an ETL platform for marketing analytics (data integration from 500+ sources), now AI-first — building AI agents for marketing automation ('Marketing on Autopilot'). We have the 8th version of our AI agent in production.",
+    "tags": ["company", "overview", "enterprise"]
+  },
+  {
+    "q": "What is the tech stack at Improvado?",
+    "a": "Data: ClickHouse (analytics), PostgreSQL, Supabase. AI/ML: Claude (Anthropic), GPT-4, Gemini, open-source models. Development: Claude Code (primary), Cursor, Python, TypeScript. Infrastructure: AWS, Kubernetes. Knowledge Graph: Custom-built, integrates with all data sources. Agent Framework: Custom (8th version), built on top of LLM APIs.",
+    "tags": ["tech-stack", "engineering", "ai"]
+  },
+  {
+    "q": "What is the AI Principal role?",
+    "a": "We're looking for a T-shape person who can do everything — talk to clients, do marketing, frontend, backend, ML models, R&D. This person will be Daniel's partner in R&D. You'll pair-code together, build agents, solve client problems. The role involves working directly with the CEO on Knowledge Graph, Causal Inference, and Marketing Autopilot.",
+    "tags": ["role", "ai-principal", "hiring"]
+  },
+  {
+    "q": "What are the current AI priorities?",
+    "a": "1. Knowledge Graph — building a comprehensive graph of all business entities. 2. Causal Inference — Bayesian models for marketing attribution. 3. Marketing Autopilot — fully autonomous campaign optimization. 4. Agent Quality — evaluation frameworks, self-correcting agents. 5. Context Management — solving the context window limitation.",
+    "tags": ["priorities", "roadmap", "ai"]
+  },
+  {
+    "q": "What is the team structure?",
+    "a": "The AI team is small — 2-3 people. You'll work directly with Daniel. There are also fullstack developers, data engineers, and customer success. The company has about 100 employees total. But the focus for this role is: you and Daniel building together.",
+    "tags": ["team", "structure", "culture"]
+  },
+  {
+    "q": "What about remote work and timezone?",
+    "a": "Remote-first but timezone matters. PST preferred, or overlap 5+ hours. Daniel is in the Bay Area. Relocation assistance is available — Argentina is popular because of the convenient timezone. Fast-paced, startup energy despite 9 years.",
+    "tags": ["remote", "timezone", "relocation"]
+  },
+  {
+    "q": "What about compensation?",
+    "a": "We have an open range because we interview people with very different experience levels. Tell us your expectations and we'll discuss. We value people and pay fairly. Equity is included, and there's a possibility the company could be acquired, which would accelerate equity realization.",
+    "tags": ["compensation", "salary", "equity"]
+  },
+  {
+    "q": "Who are the competitors?",
+    "a": "Competitors include Adverity, Fivetran, Tapclicks, and Funnel.io. Improvado differentiates through professional services, enterprise customization, and being genuinely AI-first. For others it's marketing — for Improvado, AI is the core product.",
+    "tags": ["competitors", "market", "differentiation"]
+  },
+  {
+    "q": "What does Daniel think about AGI?",
+    "a": "Daniel believes AGI is already here. The only unsolved problems are context and memory. Intelligence already exceeds most humans. Small teams with AI can outperform large teams 20x. Vibe coding (AI-assisted development) is the future — engineers who don't adopt it will fall behind.",
+    "tags": ["agi", "ai-vision", "philosophy"]
+  },
+  {
+    "q": "What are the next steps in the interview process?",
+    "a": "The next step is a homework assignment. We'll send real data (under NDA). You'll need to analyze marketing data, find anomalies, and propose solutions. Then we'll schedule a pair-coding session. We're ready to pay for your time — tell us your hourly rate and how many hours you plan to spend.",
+    "tags": ["process", "next-steps", "homework"]
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "question": "What does Improvado do?",
+    "expected_source": "faq.json",
+    "must_contain": ["enterprise", "marketing"]
+  },
+  {
+    "question": "What is the tech stack?",
+    "expected_source": "faq.json",
+    "must_contain": ["ClickHouse", "Python"]
+  },
+  {
+    "question": "Tell me about the AI Principal role",
+    "expected_source": "faq.json",
+    "must_contain": ["T-shape"]
+  },
+  {
+    "question": "What are the AI priorities?",
+    "expected_source": "faq.json",
+    "must_contain": ["Knowledge Graph"]
+  },
+  {
+    "question": "What does Daniel think about AGI?",
+    "expected_source": "faq.json",
+    "must_contain": ["AGI", "context"]
+  },
+  {
+    "question": "What is the compensation like?",
+    "expected_source": "faq.json",
+    "must_contain": ["equity"]
+  },
+  {
+    "question": "What about quantum computing applications?",
+    "expected_source": null,
+    "must_contain": ["not in", "don't have", "clarif", "outside"]
+  }
+]
