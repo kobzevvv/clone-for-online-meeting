@@ -4,7 +4,12 @@ import logging
 import time
 from collections.abc import AsyncIterator
 
-from src.agent.policy import build_context_block, build_stage_hint, build_system_prompt
+from src.agent.policy import (
+    build_context_block,
+    build_stage_hint,
+    build_system_prompt,
+    get_stage_label,
+)
 from src.knowledge.loader import Chunk
 from src.knowledge.retriever import KnowledgeRetriever
 from src.llm.base import LLMClient
@@ -64,7 +69,8 @@ class InterviewAgent:
 
         # Build messages
         context_block = build_context_block(chunks)
-        stage_hint = build_stage_hint(self._count_exchanges())
+        exchange_count = self._count_exchanges()
+        stage_hint = build_stage_hint(exchange_count)
         messages = [
             {"role": "system", "content": self.system_prompt + context_block + stage_hint},
         ]
@@ -87,6 +93,11 @@ class InterviewAgent:
                 first_token = False
             full_response.append(token)
             yield token
+
+        # Append stage label (computed by code, not LLM)
+        stage_label = f"\n\nStage: {get_stage_label(exchange_count)}"
+        full_response.append(stage_label)
+        yield stage_label
 
         # Update conversation history
         response_text = "".join(full_response)

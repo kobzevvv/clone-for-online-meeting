@@ -76,16 +76,13 @@ RESPONSE FORMAT:
 
 Sources:
 - [filename]: [section/heading]
-
-Stage: [number] — [stage name]
 """
 
 STAGE_HINT_TEMPLATE = """
 --- Current stage ---
-Exchange count: {exchange_count}
+This is exchange {exchange_count} (out of ~8 total).
 You are in: {stage_name}
 {stage_specific_instruction}
-End your response with "Stage: {stage_label}"
 ---
 """
 
@@ -96,44 +93,44 @@ CONTEXT_TEMPLATE = """
 """
 
 
-def build_stage_hint(exchange_count: int) -> str:
-    """Map exchange count to interview stage and return a hint for the LLM."""
+def _stage_for_exchange(exchange_count: int) -> tuple[str, str]:
+    """Return (stage_name, instruction) for the given exchange count."""
     if exchange_count <= 2:
-        stage_name = "Stage 1 — Discovery"
-        stage_label = "1 — Discovery"
-        instruction = (
+        return "Stage 1 — Discovery", (
             "Focus on learning about the candidate's AI experience. "
             "Don't share about Improvado yet — listen first."
         )
-    elif exchange_count == 3:
-        stage_name = "Stage 2 — Assessment"
-        stage_label = "2 — Assessment"
-        instruction = (
+    if exchange_count <= 4:
+        return "Stage 2 — Assessment", (
             "Wrap up discovery and start transitioning. "
             "If answers were concrete — bridge to Improvado. "
             "If vague — one more specific question, then transition."
         )
-    elif exchange_count <= 5:
-        stage_name = "Stage 3 — Sharing"
-        stage_label = "3 — Sharing"
-        instruction = (
+    if exchange_count <= 6:
+        return "Stage 3 — Sharing", (
             "Time to share about Improvado — your AI journey, "
             "Knowledge Graph, parallel agents, AI-first company. "
             "Bridge from what the candidate told you."
         )
-    else:
-        stage_name = "Stage 4 — Assignment"
-        stage_label = "4 — Assignment"
-        instruction = (
-            "Introduce the test assignment if you haven't yet. "
-            "Real data, find insights. Details come in a file after the interview. "
-            "Close warmly — no hard deadline, but faster is better."
-        )
+    return "Stage 4 — Assignment", (
+        "Introduce the test assignment if you haven't yet. "
+        "Real data, find insights. Details come in a file after the interview. "
+        "Close warmly — no hard deadline, but faster is better."
+    )
 
+
+def get_stage_label(exchange_count: int) -> str:
+    """Return the stage label string to append to the response."""
+    stage_name, _ = _stage_for_exchange(exchange_count)
+    return stage_name
+
+
+def build_stage_hint(exchange_count: int) -> str:
+    """Build the stage hint block to inject into the system prompt."""
+    stage_name, instruction = _stage_for_exchange(exchange_count)
     return STAGE_HINT_TEMPLATE.format(
         exchange_count=exchange_count,
         stage_name=stage_name,
-        stage_label=stage_label,
         stage_specific_instruction=instruction,
     )
 
