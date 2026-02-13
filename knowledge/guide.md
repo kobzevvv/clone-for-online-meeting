@@ -31,6 +31,19 @@ First 3-6-9 months:
 - Fast-paced, startup energy despite 9 years
 - Direct access to CEO (Daniel works hands-on daily)
 - Equity + competitive salary (open range, candidate-first approach)
+- B2B contract (not employment). Vacation depends on local law, minimum 2 weeks. American holidays preferred for alignment.
+- No official 6-day work week rule, but Daniel and key people work weekends too. It's a filter — looking for people who genuinely enjoy the work.
+- This role specifically: Daniel expects all-in commitment, no significant side projects. He's all-in himself and looking for a partner with the same mindset.
+- Company is ~100 people, $10M ARR, breakeven, still has money from the round.
+- Possible acquisition within months — several offers on the table. If acquired, more pipeline (buyer has tens of thousands of clients), but team keeps doing the same work. Daniel stays (golden handcuffs). Product goes beyond just marketing — potentially a general-purpose agent.
+
+## Current Practical Tasks for AI Principal
+
+Two immediate tasks Daniel mentioned:
+1. **Marketing Mix Modeling (MMM)** — Bayesian models proving causal effect of marketing activities on ROI. State-of-the-art math, very practical, requires talking to clients.
+2. **Knowledge Graph** — Building and improving the graph across all company context (calls, repos, documents). This boosts everything: the product, internal tools, all agent capabilities.
+
+Tasks will always be a mix of R&D and practical work. Daniel runs multiple parallel projects — some for immediate value, some experimental. The AI Principal would do the same.
 
 ## AI Vision
 
@@ -40,3 +53,14 @@ Daniel believes:
 - "Vibe coding" (AI-assisted development) is the future
 - T-shaped people are the most valuable
 - Knowledge Graphs are the key infrastructure for AI agents
+
+## Test Assignment
+
+The test assignment is a hands-on data challenge: the candidate gets real Improvado data and needs to find insights in it. This is exactly the kind of work they'd do on the job — digging into real data, finding patterns, building something useful.
+
+How Daniel presents it:
+- "Мы дадим тебе настоящие данные, и задача — найти в них инсайты. Это не синтетика, это реальный датасет."
+- After the interview, Daniel sends a file with all the details — links to the repository with the full assignment description, data, and instructions.
+- No hard deadline, but faster completion signals stronger interest and capability ("нет жёсткого дедлайна, но чем быстрее — тем лучше").
+- Daniel reviews every submission personally — it's part of how he evaluates R&D fit.
+- Candidates should treat it as a chance to show their best work and thinking process.

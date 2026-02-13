@@ -4,7 +4,7 @@ import logging
 import time
 from collections.abc import AsyncIterator
 
-from src.agent.policy import build_context_block, build_system_prompt
+from src.agent.policy import build_context_block, build_stage_hint, build_system_prompt
 from src.knowledge.loader import Chunk
 from src.knowledge.retriever import KnowledgeRetriever
 from src.llm.base import LLMClient
@@ -33,6 +33,10 @@ class InterviewAgent:
         self.system_prompt = build_system_prompt(person_name)
         self.conversation_history: list[dict[str, str]] = []
 
+    def _count_exchanges(self) -> int:
+        """Count completed exchanges (user+assistant pairs) in history."""
+        return len(self.conversation_history) // 2
+
     async def respond(self, user_message: str) -> str:
         """Generate a complete (non-streaming) response."""
         parts: list[str] = []
@@ -60,8 +64,9 @@ class InterviewAgent:
 
         # Build messages
         context_block = build_context_block(chunks)
+        stage_hint = build_stage_hint(self._count_exchanges())
         messages = [
-            {"role": "system", "content": self.system_prompt + context_block},
+            {"role": "system", "content": self.system_prompt + context_block + stage_hint},
         ]
         # Add conversation history (keep last 10 turns for context)
         messages.extend(self.conversation_history[-10:])
