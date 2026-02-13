@@ -46,10 +46,19 @@ def _get_agent(chat_id: int) -> InterviewAgent:
 
 
 GREETING = (
-    "Hi! I'm {name}, CEO & Co-founder of Improvado.\n"
-    "Let's chat about the AI Principal role — ask me anything, "
-    "or just tell me about yourself and we'll go from there.\n\n"
-    "/newchat — start a new conversation from scratch"
+    "Привет! Это бот-клон Даниила Кравцова, CEO & Co-founder Improvado.\n\n"
+    "Что это такое:\n"
+    "Бот симулирует первый скрининг-интервью на позицию AI Principal. "
+    "Он отвечает как Даниил — задаёт вопросы, реагирует на твои ответы, "
+    "рассказывает про компанию, роль и AI-vision. "
+    "Вся информация берётся из базы знаний (knowledge base), "
+    "в конце каждого ответа видны источники.\n\n"
+    "Как пользоваться:\n"
+    "— Просто пиши сообщения, как в обычном чате\n"
+    "— Бот помнит весь диалог и не повторяет вопросы\n"
+    "— /newchat — начать новый диалог с чистого листа "
+    "(вся история сбрасывается, как будто интервью только началось)\n\n"
+    "Поехали! Расскажи о себе, или спроси что-нибудь о роли."
 )
 
 
@@ -65,8 +74,8 @@ async def cmd_newchat(message: types.Message) -> None:
     """Handle /newchat — wipe memory, start a fresh interview."""
     _reset_agent(message.chat.id)
     await message.answer(
-        "New chat started! All previous context cleared.\n\n"
-        f"Hi, I'm {_person_name}. Let's go — tell me about yourself!"
+        "Новый диалог! Вся предыдущая история очищена.\n\n"
+        "Привет, давай начнём сначала — расскажи о себе!"
     )
 
 
