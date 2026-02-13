@@ -18,6 +18,9 @@ test:
 web:
 	python main.py --mode web
 
+telegram:
+	python main.py --mode telegram
+
 clean:
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null; true
 	find . -type f -name "*.pyc" -delete 2>/dev/null; true

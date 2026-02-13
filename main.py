@@ -125,6 +125,26 @@ async def run_text(args):
     await loop.run()
 
 
+async def run_telegram(args):
+    """Run as a Telegram bot."""
+    agent, settings = build_agent()
+
+    if not settings.telegram_bot_token:
+        print("⚠️  TELEGRAM_BOT_TOKEN not set. Set it in .env.")
+        sys.exit(1)
+
+    from src.telegram_bot import run_bot
+
+    print("\n🤖 Starting Telegram bot...\n")
+    await run_bot(
+        token=settings.telegram_bot_token,
+        retriever=agent.retriever,
+        llm=agent.llm,
+        person_name=settings.person_name,
+        max_chunks=settings.max_chunks,
+    )
+
+
 async def run_web(args):
     """Run web server with WebSocket interface."""
     agent, settings = build_agent()
@@ -176,19 +196,21 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Modes:
-  voice   Real-time voice mode (mic + speakers)
-  text    Text-only mode (stdin/stdout)
-  web     Web interface with WebSocket
+  voice      Real-time voice mode (mic + speakers)
+  text       Text-only mode (stdin/stdout)
+  web        Web interface with WebSocket
+  telegram   Telegram bot
 
 Examples:
   python main.py --mode text
   python main.py --mode voice
   python main.py --mode web --port 8080
+  python main.py --mode telegram
         """,
     )
     parser.add_argument(
         "--mode",
-        choices=["voice", "text", "web"],
+        choices=["voice", "text", "web", "telegram"],
         default="text",
         help="Interaction mode (default: text)",
     )
@@ -217,6 +239,8 @@ Examples:
         asyncio.run(run_text(args))
     elif args.mode == "web":
         asyncio.run(run_web(args))
+    elif args.mode == "telegram":
+        asyncio.run(run_telegram(args))
 
 
 if __name__ == "__main__":

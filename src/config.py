@@ -45,6 +45,9 @@ class Settings(BaseSettings):
     # Agent
     person_name: str = "Daniel"
 
+    # Telegram
+    telegram_bot_token: str = ""
+
     # Logging
     log_level: str = "INFO"
 
